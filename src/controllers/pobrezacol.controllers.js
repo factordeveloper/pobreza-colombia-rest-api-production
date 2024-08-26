@@ -14,7 +14,7 @@ export const getDepartamentos = async (req, res) => {
 export const getHogarDepartamento = async (req, res) => {
   try {
     const pool = await getConnection();
-    const result = await pool.request().query("SELECT * FROM dbo.hogar_depto");
+    const result = await pool.request().query("SELECT TOP 1000 * FROM dbo.hogar_depto");
     res.json(result.recordset);
   } catch (error) {
     res.status(500);
